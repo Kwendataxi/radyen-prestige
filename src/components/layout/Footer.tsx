@@ -118,9 +118,20 @@ export function Footer() {
 
       {/* Bottom */}
       <div className="border-t border-border/20">
-        <div className="container mx-auto px-6 py-5">
+        <div className="container mx-auto px-6 py-5 space-y-2">
           <p className="text-muted-foreground text-xs text-center">
             © {new Date().getFullYear()} RADYEN CONSULT. Tous droits réservés.
+          </p>
+          <p className="text-muted-foreground/60 text-xs text-center">
+            Design by{" "}
+            <a 
+              href="https://icon-sarl.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-accent hover:text-accent/80 transition-colors font-medium"
+            >
+              ICON
+            </a>
           </p>
         </div>
       </div>

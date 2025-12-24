@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* RADYEN CONSULT - Premium Elegant Design System v3 */
+/* RADYEN CONSULT - Premium Elegant Design System v4 - Enhanced Typography */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;450;500;600&display=swap');
 
 @layer base {
   :root {
@@ -28,9 +28,9 @@
     --secondary: 220 15% 12%;
     --secondary-foreground: 45 10% 90%;
 
-    /* Muted - Better contrast */
+    /* Muted - BETTER contrast for readability */
     --muted: 220 12% 16%;
-    --muted-foreground: 220 10% 55%;
+    --muted-foreground: 220 8% 68%;
 
     /* Accent - Softer Gold/Bronze (less saturated, more elegant) */
     --accent: 38 50% 55%;
@@ -81,33 +81,71 @@
   }
 
   .light {
-    --background: 40 20% 98%;
-    --foreground: 220 25% 12%;
+    /* Fond crème chaud et accueillant */
+    --background: 40 35% 96%;
+    --foreground: 220 30% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 25% 12%;
+    /* Cards blanc crème */
+    --card: 40 25% 99%;
+    --card-foreground: 220 30% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 12%;
+    /* Popover */
+    --popover: 40 25% 99%;
+    --popover-foreground: 220 30% 15%;
 
-    --primary: 220 45% 25%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary - Navy profond */
+    --primary: 220 40% 22%;
+    --primary-foreground: 40 30% 98%;
 
-    --secondary: 220 12% 94%;
-    --secondary-foreground: 220 25% 18%;
+    /* Secondary beige subtil */
+    --secondary: 38 22% 90%;
+    --secondary-foreground: 220 30% 18%;
 
-    --muted: 220 10% 92%;
-    --muted-foreground: 220 12% 45%;
+    /* Muted chaleureux - MEILLEUR CONTRASTE */
+    --muted: 38 18% 88%;
+    --muted-foreground: 220 20% 32%;
 
-    --accent: 38 50% 48%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent cuivre profond */
+    --accent: 38 55% 42%;
+    --accent-foreground: 40 30% 98%;
 
-    --destructive: 0 55% 50%;
-    --destructive-foreground: 0 0% 100%;
+    /* Destructive */
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 40 30% 98%;
 
-    --border: 220 12% 90%;
-    --input: 220 12% 90%;
-    --ring: 38 50% 48%;
+    /* Bordures chaudes */
+    --border: 38 18% 82%;
+    --input: 38 18% 82%;
+    --ring: 38 55% 42%;
+
+    /* Custom colors - Light mode */
+    --navy: 40 22% 92%;
+    --navy-light: 40 28% 95%;
+    --copper: 38 55% 42%;
+    --copper-light: 38 48% 55%;
+    --copper-glow: 38 50% 50%;
+
+    /* Gradients light */
+    --gradient-hero: linear-gradient(160deg, hsl(40 35% 96%) 0%, hsl(40 30% 94%) 50%, hsl(40 35% 96%) 100%);
+    --gradient-copper: linear-gradient(135deg, hsl(38 55% 42%) 0%, hsl(42 50% 52%) 100%);
+    --gradient-card: linear-gradient(165deg, hsl(40 25% 99%) 0%, hsl(40 22% 97%) 100%);
+
+    /* Shadows light */
+    --shadow-sm: 0 2px 8px hsl(220 15% 70% / 0.12);
+    --shadow-md: 0 8px 24px hsl(220 15% 70% / 0.15);
+    --shadow-lg: 0 20px 40px hsl(220 15% 70% / 0.18);
+    --shadow-copper: 0 8px 30px hsl(38 55% 42% / 0.15);
+    --shadow-soft: 0 4px 20px hsl(220 15% 70% / 0.1);
+
+    /* Sidebar light */
+    --sidebar-background: 40 30% 97%;
+    --sidebar-foreground: 220 30% 15%;
+    --sidebar-primary: 38 55% 42%;
+    --sidebar-primary-foreground: 40 30% 98%;
+    --sidebar-accent: 38 22% 90%;
+    --sidebar-accent-foreground: 220 30% 18%;
+    --sidebar-border: 38 18% 82%;
+    --sidebar-ring: 38 55% 42%;
   }
 }
 
@@ -123,12 +161,12 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 400;
+    font-weight: 450;
     letter-spacing: 0.01em;
     line-height: 1.6;
   }
 
-  /* Optimized Montserrat typography - Bold & Impactful */
+  /* Optimized Montserrat typography - BOLD & Impactful */
   h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -154,6 +192,24 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     letter-spacing: 0;
+  }
+
+  /* Paragraphs more visible */
+  p {
+    font-weight: 450;
+  }
+
+  /* Labels distinctifs - Montserrat Medium */
+  .font-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Texte medium pour descriptions importantes */
+  .text-prominent {
+    font-weight: 500;
   }
 
   /* Theme transition */
