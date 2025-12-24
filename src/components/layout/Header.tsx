@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 interface NavItem {
@@ -82,16 +83,17 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-10">
             {navItems.map((item) => (
               <div key={item.href} className="relative group">
                 {item.children ? (
                   <button
                     className={cn(
-                      "flex items-center gap-1.5 text-sm font-medium transition-colors duration-300",
+                      "flex items-center gap-1.5 text-sm font-semibold tracking-wide transition-colors duration-300",
+                      "font-heading",
                       isParentActive(item)
                         ? "text-accent"
-                        : "text-foreground/60 hover:text-foreground"
+                        : "text-foreground/70 hover:text-foreground"
                     )}
                   >
                     {item.label}
@@ -101,10 +103,11 @@ export function Header() {
                   <Link
                     to={item.href}
                     className={cn(
-                      "nav-link text-sm font-medium transition-colors duration-300",
+                      "nav-link text-sm font-semibold tracking-wide transition-colors duration-300",
+                      "font-heading",
                       isActive(item.href)
                         ? "text-accent"
-                        : "text-foreground/60 hover:text-foreground"
+                        : "text-foreground/70 hover:text-foreground"
                     )}
                   >
                     {item.label}
@@ -120,7 +123,8 @@ export function Header() {
                           key={child.href}
                           to={child.href}
                           className={cn(
-                            "block px-4 py-2.5 text-sm rounded-md transition-colors duration-200",
+                            "block px-4 py-2.5 text-sm font-medium rounded-md transition-colors duration-200",
+                            "font-heading",
                             isActive(child.href)
                               ? "text-accent bg-accent/5"
                               : "text-foreground/70 hover:text-foreground hover:bg-secondary/50"
@@ -136,10 +140,11 @@ export function Header() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden lg:block">
+          {/* Desktop CTA + Theme Toggle */}
+          <div className="hidden lg:flex items-center gap-4">
+            <ThemeToggle />
             <Link to="/contact">
-              <Button variant="copper" size="sm" className="text-sm">
+              <Button variant="copper" size="sm" className="text-sm font-semibold">
                 Nous contacter
               </Button>
             </Link>
@@ -197,7 +202,8 @@ export function Header() {
                     <button
                       onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                       className={cn(
-                        "w-full flex items-center justify-between py-4 text-lg font-medium transition-colors",
+                        "w-full flex items-center justify-between py-4 text-lg font-semibold transition-colors",
+                        "font-heading",
                         isParentActive(item) ? "text-accent" : "text-foreground/80"
                       )}
                     >
@@ -221,7 +227,7 @@ export function Header() {
                             key={child.href}
                             to={child.href}
                             className={cn(
-                              "block py-3 text-base transition-colors",
+                              "block py-3 text-base font-medium transition-colors font-heading",
                               isActive(child.href) ? "text-accent" : "text-muted-foreground"
                             )}
                           >
@@ -235,7 +241,7 @@ export function Header() {
                   <Link
                     to={item.href}
                     className={cn(
-                      "block py-4 text-lg font-medium transition-colors",
+                      "block py-4 text-lg font-semibold transition-colors font-heading",
                       isActive(item.href) ? "text-accent" : "text-foreground/80"
                     )}
                   >
@@ -246,9 +252,13 @@ export function Header() {
             ))}
           </div>
 
-          <div className="mt-auto pt-8">
+          <div className="mt-auto pt-8 space-y-4">
+            <div className="flex items-center justify-between px-2">
+              <span className="text-sm text-muted-foreground font-heading font-medium">Changer le thème</span>
+              <ThemeToggle />
+            </div>
             <Link to="/contact" className="block">
-              <Button variant="copper" className="w-full">
+              <Button variant="copper" className="w-full font-semibold">
                 Nous contacter
               </Button>
             </Link>
