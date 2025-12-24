@@ -123,14 +123,14 @@ function TeamCard({
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="font-heading text-xl font-bold text-foreground mb-1">
+        <h3 className="font-heading text-xl font-black text-foreground mb-1 tracking-tight">
           {member.name}
         </h3>
-        <p className="text-accent font-medium text-sm mb-1">{member.role}</p>
-        <p className="text-muted-foreground text-xs uppercase tracking-wider mb-3">
+        <p className="text-gradient-accent font-bold text-sm mb-1">{member.role}</p>
+        <p className="text-muted-foreground text-xs font-semibold uppercase tracking-widest mb-3">
           {member.specialty}
         </p>
-        <p className="text-muted-foreground text-sm leading-relaxed">
+        <p className="text-muted-foreground text-sm leading-relaxed font-medium">
           {member.bio}
         </p>
       </div>
@@ -155,16 +155,16 @@ export default function Equipe() {
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="copper-line-left w-12" />
-              <span className="text-accent text-sm font-medium tracking-widest uppercase">
+              <span className="label-premium text-accent">
                 Notre équipe
               </span>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Les Experts RADYEN
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-foreground mb-6 title-underline">
+              <span className="text-gradient-modern">Les Experts</span> RADYEN
             </h1>
 
-            <p className="text-xl text-muted-foreground max-w-2xl font-medium">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl font-semibold leading-relaxed">
               Une équipe pluridisciplinaire d'ingénieurs et d'architectes passionnés,
               unis par l'excellence et l'innovation.
             </p>
@@ -189,10 +189,10 @@ export default function Equipe() {
       {/* Values CTA */}
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Rejoignez l'Aventure
+          <h2 className="font-heading text-3xl md:text-5xl font-black text-foreground mb-4 title-underline title-underline-center">
+            <span className="text-gradient-accent">Rejoignez</span> l'Aventure
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8 mt-8 font-semibold">
             Nous recherchons toujours des talents passionnés pour renforcer notre équipe.
           </p>
           <a

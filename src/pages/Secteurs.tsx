@@ -134,11 +134,11 @@ function SectorCard({ sector, index }: { sector: typeof sectors[0]; index: numbe
             : "opacity-0 translate-y-12"
         )}
       >
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4 title-underline">
           {sector.title}
         </h2>
 
-        <p className="text-muted-foreground text-lg leading-relaxed mb-8 font-medium">
+        <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8 font-semibold mt-8">
           {sector.description}
         </p>
 
@@ -154,8 +154,8 @@ function SectorCard({ sector, index }: { sector: typeof sectors[0]; index: numbe
               )}
               style={{ transitionDelay: `${(featureIndex + 1) * 100 + 300}ms` }}
             >
-              <div className="w-2 h-2 rounded-full bg-accent" />
-              <span className="text-foreground">{feature}</span>
+              <div className="w-2.5 h-2.5 rounded-full bg-accent" />
+              <span className="text-foreground font-medium text-base">{feature}</span>
             </li>
           ))}
         </ul>
@@ -188,16 +188,16 @@ export default function Secteurs() {
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="copper-line-left w-12" />
-              <span className="text-accent text-sm font-medium tracking-widest uppercase">
+              <span className="label-premium text-accent">
                 Nos métiers
               </span>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Secteurs d'Activités
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-foreground mb-6 title-underline">
+              <span className="text-gradient-modern">Secteurs</span> d'Activités
             </h1>
 
-            <p className="text-xl text-muted-foreground max-w-2xl font-medium">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl font-semibold leading-relaxed mt-8">
               Nous exerçons nos activités au travers de 4 métiers
               complémentaires pour accompagner vos projets.
             </p>
