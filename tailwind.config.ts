@@ -17,6 +17,13 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         heading: ['Montserrat', 'system-ui', 'sans-serif'],
       },
+      letterSpacing: {
+        tighter: '-0.02em',
+        tight: '-0.01em',
+        wide: '0.02em',
+        wider: '0.1em',
+        widest: '0.2em',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
