@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-construction.jpg";
 import { useScrollReveal, useCountUp } from "@/hooks/useScrollReveal";
+import { useParallax } from "@/hooks/useParallax";
 
 function AnimatedStat({ value, label, suffix = "" }: { value: number; label: string; suffix?: string }) {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.3 });
@@ -10,19 +11,24 @@ function AnimatedStat({ value, label, suffix = "" }: { value: number; label: str
 
   return (
     <div ref={ref} className="text-center">
-      <div className="font-heading text-2xl md:text-3xl font-semibold text-accent mb-1 tabular-nums">
+      <div className="font-heading text-2xl md:text-3xl font-bold text-accent mb-1 tabular-nums">
         {count}{suffix}
       </div>
-      <div className="text-xs md:text-sm text-muted-foreground">{label}</div>
+      <div className="font-label text-xs text-foreground/80">{label}</div>
     </div>
   );
 }
 
 export function HeroSection() {
+  const { offset } = useParallax({ speed: 0.15, direction: 'down' });
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
+      {/* Background with parallax */}
+      <div 
+        className="absolute inset-0"
+        style={{ transform: `translateY(${offset}px) scale(1.1)`, willChange: 'transform' }}
+      >
         <img
           src={heroImage}
           alt="Infrastructure engineering"
@@ -40,7 +46,7 @@ export function HeroSection() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8 opacity-0 animate-fade-in"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            <span className="text-xs text-muted-foreground tracking-wide">
+            <span className="font-label text-xs text-muted-foreground">
               Ingénierie • Bâtiment • Génie Civil
             </span>
           </div>
@@ -57,7 +63,7 @@ export function HeroSection() {
 
           {/* Subtitle */}
           <p 
-            className="text-base md:text-lg text-muted-foreground max-w-xl mb-10 leading-relaxed opacity-0 animate-fade-in-up" 
+            className="text-base md:text-lg text-muted-foreground font-medium max-w-xl mb-10 leading-relaxed opacity-0 animate-fade-in-up" 
             style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
           >
             Au service de nos clients dans les domaines du bâtiment, génie civil

@@ -52,13 +52,13 @@ export function AboutSection() {
               <span className="text-gradient-copper">ingénierie</span>
             </h2>
 
-            <p className="text-muted-foreground leading-relaxed mb-5">
+            <p className="text-muted-foreground leading-relaxed mb-5 font-medium">
               Nous sommes un groupe d'ingénierie tourné vers l'excellence
               technique, l'expertise, et l'innovation au service de nos clients
               dans les domaines du bâtiment, Génie Civil et des ouvrages d'arts.
             </p>
 
-            <p className="text-muted-foreground text-sm leading-relaxed mb-8">
+            <p className="text-muted-foreground text-sm leading-relaxed mb-8 font-medium">
               RADYEN CONSULT mobilise des experts de tous horizons, intervenant
               en Côte d'Ivoire et à l'international.
             </p>
@@ -86,10 +86,10 @@ export function AboutSection() {
                 }}
               >
                 <value.icon className="w-5 h-5 text-accent mb-4 transition-transform duration-300 group-hover:scale-110" />
-                <h3 className="font-heading text-base font-medium text-foreground mb-2">
+                <h3 className="font-heading text-base font-semibold text-foreground mb-2">
                   {value.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed font-medium">
                   {value.description}
                 </p>
               </div>

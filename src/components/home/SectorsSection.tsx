@@ -58,7 +58,7 @@ export function SectorsSection() {
             Nos <span className="text-gradient-copper">4 métiers</span>
           </h2>
 
-          <p className="text-muted-foreground">
+          <p className="text-muted-foreground font-medium">
             Une expertise complète de la conception à la réalisation.
           </p>
         </div>
@@ -89,10 +89,10 @@ export function SectorsSection() {
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-5">
                 <sector.icon className="w-5 h-5 text-accent mb-3 transition-transform duration-300 group-hover:scale-110" />
-                <h3 className="font-heading text-lg font-medium text-foreground mb-1 group-hover:text-accent transition-colors duration-300">
+                <h3 className="font-heading text-lg font-semibold text-foreground mb-1 group-hover:text-accent transition-colors duration-300">
                   {sector.title}
                 </h3>
-                <p className="text-muted-foreground text-sm opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                <p className="text-muted-foreground text-sm font-medium opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                   {sector.description}
                 </p>
               </div>
