@@ -365,6 +365,24 @@
     animation: pulseSoft 4s ease-in-out infinite;
   }
 
+  /* Shimmer effect for skeleton loading */
+  .animate-shimmer {
+    animation: shimmer 2s infinite linear;
+  }
+
+  /* Reveal animations */
+  .animate-reveal-up {
+    animation: revealUp 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+
+  .animate-reveal-left {
+    animation: revealLeft 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+
+  .animate-reveal-right {
+    animation: revealRight 0.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  }
+
   /* Transition utilities */
   .transition-elegant {
     transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -372,6 +390,17 @@
 
   .duration-400 {
     transition-duration: 400ms;
+  }
+
+  /* Card lift hover effect */
+  .card-lift-hover {
+    @apply transition-all duration-500;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .card-lift-hover:hover {
+    @apply -translate-y-2;
+    box-shadow: var(--shadow-lg);
   }
 
   @keyframes fadeIn {
@@ -426,6 +455,50 @@
   @keyframes pulseSoft {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.7; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  @keyframes revealUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes revealLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes revealRight {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+      filter: blur(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+      filter: blur(0);
+    }
   }
 
   /* Stagger delays - refined timing */
