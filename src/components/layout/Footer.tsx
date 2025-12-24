@@ -24,14 +24,14 @@ export function Footer() {
           {/* Logo */}
           <div className="space-y-4">
             <Link to="/" className="inline-block group">
-              <span className="font-heading text-xl font-semibold text-foreground tracking-tight group-hover:text-accent transition-colors">
+              <span className="font-heading text-xl font-black text-foreground tracking-tighter group-hover:text-accent transition-colors">
                 RADYEN
               </span>
-              <span className="text-accent text-[9px] font-medium tracking-[0.3em] block -mt-0.5">
+              <span className="text-accent text-[9px] font-bold tracking-[0.3em] block -mt-0.5">
                 CONSULT
               </span>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-xs font-medium">
               Un groupe d'ingénierie tourné vers l'excellence technique
               et l'innovation.
             </p>
@@ -45,7 +45,7 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="font-heading text-sm font-medium text-foreground mb-4 tracking-wide">
+            <h4 className="font-heading text-sm font-bold text-foreground mb-4 tracking-wide uppercase">
               Liens
             </h4>
             <ul className="space-y-2.5">
@@ -53,7 +53,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-accent transition-colors text-sm"
+                    className="text-muted-foreground hover:text-accent transition-colors text-sm font-medium"
                   >
                     {link.label}
                   </Link>
@@ -64,7 +64,7 @@ export function Footer() {
 
           {/* Sectors */}
           <div>
-            <h4 className="font-heading text-sm font-medium text-foreground mb-4 tracking-wide">
+            <h4 className="font-heading text-sm font-bold text-foreground mb-4 tracking-wide uppercase">
               Secteurs
             </h4>
             <ul className="space-y-2.5">
@@ -72,7 +72,7 @@ export function Footer() {
                 <li key={index}>
                   <Link
                     to={link.href}
-                    className="text-muted-foreground hover:text-accent transition-colors text-sm"
+                    className="text-muted-foreground hover:text-accent transition-colors text-sm font-medium"
                   >
                     {link.label}
                   </Link>
@@ -83,14 +83,14 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading text-sm font-medium text-foreground mb-4 tracking-wide">
+            <h4 className="font-heading text-sm font-bold text-foreground mb-4 tracking-wide uppercase">
               Contact
             </h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href="tel:+22507790303"
-                  className="flex items-center gap-2.5 text-muted-foreground hover:text-accent transition-colors text-sm"
+                  className="flex items-center gap-2.5 text-muted-foreground hover:text-accent transition-colors text-sm font-medium"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   +225 07 79 03 03 03
@@ -99,14 +99,14 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:radyenconsult@gmail.com"
-                  className="flex items-center gap-2.5 text-muted-foreground hover:text-accent transition-colors text-sm"
+                  className="flex items-center gap-2.5 text-muted-foreground hover:text-accent transition-colors text-sm font-medium"
                 >
                   <Mail className="w-3.5 h-3.5" />
                   radyenconsult@gmail.com
                 </a>
               </li>
               <li>
-                <div className="flex items-start gap-2.5 text-muted-foreground text-sm">
+                <div className="flex items-start gap-2.5 text-muted-foreground text-sm font-medium">
                   <MapPin className="w-3.5 h-3.5 mt-0.5 shrink-0" />
                   <span>Abidjan, Riviera Bonoumin<br />Côte d'Ivoire</span>
                 </div>

@@ -73,10 +73,10 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="group relative z-10">
             <div className="flex flex-col">
-              <span className="font-heading text-xl font-semibold text-foreground tracking-tight transition-colors duration-300 group-hover:text-accent">
+              <span className="font-heading text-2xl font-black text-foreground tracking-tighter transition-colors duration-300 group-hover:text-accent">
                 RADYEN
               </span>
-              <span className="text-accent text-[9px] font-medium tracking-[0.3em] -mt-0.5">
+              <span className="text-accent text-[9px] font-bold tracking-[0.3em] -mt-0.5">
                 CONSULT
               </span>
             </div>
@@ -89,7 +89,7 @@ export function Header() {
                 {item.children ? (
                   <button
                     className={cn(
-                      "flex items-center gap-1.5 text-sm font-semibold tracking-wide transition-colors duration-300",
+                      "flex items-center gap-1.5 text-sm font-bold tracking-wide transition-colors duration-300",
                       "font-heading",
                       isParentActive(item)
                         ? "text-accent"
@@ -103,7 +103,7 @@ export function Header() {
                   <Link
                     to={item.href}
                     className={cn(
-                      "nav-link text-sm font-semibold tracking-wide transition-colors duration-300",
+                      "nav-link text-sm font-bold tracking-wide transition-colors duration-300",
                       "font-heading",
                       isActive(item.href)
                         ? "text-accent"
@@ -123,7 +123,7 @@ export function Header() {
                           key={child.href}
                           to={child.href}
                           className={cn(
-                            "block px-4 py-2.5 text-sm font-medium rounded-md transition-colors duration-200",
+                            "block px-4 py-2.5 text-sm font-bold rounded-md transition-colors duration-200",
                             "font-heading",
                             isActive(child.href)
                               ? "text-accent bg-accent/5"
@@ -144,7 +144,7 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <ThemeToggle />
             <Link to="/contact">
-              <Button variant="copper" size="sm" className="text-sm font-semibold">
+              <Button variant="copper" size="sm" className="text-sm font-bold">
                 Nous contacter
               </Button>
             </Link>
