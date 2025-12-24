@@ -81,16 +81,15 @@ function SectorCard({ sector, index }: { sector: typeof sectors[0]; index: numbe
   });
 
   return (
-    <div
-      className={`grid lg:grid-cols-2 gap-12 items-center ${
-        !isEven ? "lg:flex-row-reverse" : ""
-      }`}
-    >
+    <div className={cn(
+      "grid lg:grid-cols-2 gap-8 lg:gap-16 items-center",
+      !isEven ? "lg:flex-row-reverse" : ""
+    )}>
       {/* Image */}
       <div
         ref={imageRef}
         className={cn(
-          "relative rounded-2xl overflow-hidden",
+          "relative rounded-3xl overflow-hidden",
           !isEven ? "lg:order-2" : "",
           "transition-all duration-1000 ease-out",
           imageVisible 
@@ -106,20 +105,20 @@ function SectorCard({ sector, index }: { sector: typeof sectors[0]; index: numbe
           className="w-full aspect-[4/3] object-cover transition-transform duration-700 hover:scale-105"
           aspectRatio="4/3"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent pointer-events-none" />
 
         {/* Floating icon */}
         <div 
           ref={iconRef}
           className={cn(
-            "absolute bottom-6 left-6 w-16 h-16 rounded-xl bg-accent/90 backdrop-blur-sm flex items-center justify-center",
+            "absolute bottom-4 left-4 sm:bottom-6 sm:left-6 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-accent flex items-center justify-center shadow-lg",
             "transition-all duration-700 ease-out",
             iconVisible 
               ? "opacity-100 scale-100" 
               : "opacity-0 scale-75"
           )}
         >
-          <sector.icon className="w-8 h-8 text-accent-foreground" />
+          <sector.icon className="w-6 h-6 sm:w-7 sm:h-7 text-accent-foreground" />
         </div>
       </div>
 
@@ -134,28 +133,28 @@ function SectorCard({ sector, index }: { sector: typeof sectors[0]; index: numbe
             : "opacity-0 translate-y-12"
         )}
       >
-        <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4 title-underline">
+        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 title-underline">
           {sector.title}
         </h2>
 
-        <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8 font-semibold mt-8">
+        <p className="text-muted-foreground text-sm sm:text-base md:text-lg leading-relaxed mb-6 font-medium mt-6">
           {sector.description}
         </p>
 
-        <ul className="space-y-3 mb-8">
+        <ul className="space-y-2.5 mb-6">
           {sector.features.map((feature, featureIndex) => (
             <li 
               key={featureIndex} 
               className={cn(
-                "flex items-center gap-3 transition-all duration-500",
+                "flex items-center gap-3 p-2.5 rounded-lg transition-all duration-500 hover:bg-secondary/50",
                 contentVisible 
                   ? "opacity-100 translate-x-0" 
                   : "opacity-0 -translate-x-4"
               )}
               style={{ transitionDelay: `${(featureIndex + 1) * 100 + 300}ms` }}
             >
-              <div className="w-2.5 h-2.5 rounded-full bg-accent" />
-              <span className="text-foreground font-medium text-base">{feature}</span>
+              <div className="w-2 h-2 rounded-full bg-accent shrink-0" />
+              <span className="text-foreground font-medium text-sm sm:text-base">{feature}</span>
             </li>
           ))}
         </ul>
@@ -177,27 +176,27 @@ export default function Secteurs() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-secondary overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 bg-secondary overflow-hidden">
+        <div className="section-container">
           <div 
             ref={heroRef}
             className={cn(
-              "max-w-4xl transition-all duration-1000",
+              "max-w-3xl transition-all duration-1000",
               heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="copper-line-left w-12" />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-accent rounded-full" />
               <span className="label-premium text-accent">
                 Nos métiers
               </span>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-foreground mb-6 title-underline">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 title-underline">
               <span className="text-gradient-modern">Secteurs</span> d'Activités
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl font-semibold leading-relaxed mt-8">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl font-medium leading-relaxed mt-6">
               Nous exerçons nos activités au travers de 4 métiers
               complémentaires pour accompagner vos projets.
             </p>
@@ -209,8 +208,8 @@ export default function Secteurs() {
       </section>
 
       {/* Sectors Detail */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 space-y-24">
+      <section className="section-py-lg bg-background">
+        <div className="section-container space-y-20 sm:space-y-28 lg:space-y-32">
           {sectors.map((sector, index) => (
             <SectorCard key={index} sector={sector} index={index} />
           ))}

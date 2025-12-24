@@ -8,32 +8,32 @@ export function CTASection() {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.2 });
 
   return (
-    <section ref={sectionRef} className="relative py-24 md:py-32 overflow-hidden">
+    <section ref={sectionRef} className="relative section-py-md overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-navy" />
       
       {/* Subtle accent glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px]" />
 
-      <div className="container mx-auto px-6 relative">
+      <div className="section-container relative">
         <div className={cn(
-          "max-w-2xl mx-auto text-center transition-all duration-1000",
+          "max-w-xl mx-auto text-center transition-all duration-1000",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/10 border border-accent/20 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            <span className="text-accent text-xs font-medium tracking-wide">
+            <span className="label-premium text-accent">
               Prêt à démarrer ?
             </span>
           </div>
 
-          <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-6">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl text-foreground mb-4">
             Confiez-nous vos projets{" "}
-            <span className="text-gradient-copper">d'ingénierie</span>
+            <span className="text-gradient-accent">d'ingénierie</span>
           </h2>
 
-          <p className="text-muted-foreground mb-10 leading-relaxed">
+          <p className="text-muted-foreground mb-8 leading-relaxed text-sm sm:text-base font-medium">
             Notre équipe d'experts est à votre disposition pour étudier vos
             besoins et vous proposer des solutions adaptées.
           </p>

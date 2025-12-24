@@ -31,34 +31,34 @@ export function AboutSection() {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   return (
-    <section ref={sectionRef} className="section-padding bg-background relative">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+    <section ref={sectionRef} className="section-py-md bg-background relative">
+      <div className="section-container">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left Content */}
           <div className={cn(
             "transition-all duration-1000",
             isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
           )}>
             {/* Label */}
-            <div className="flex items-center gap-4 mb-6">
-              <div className="copper-line-left w-12" />
-              <span className="text-accent text-xs font-medium tracking-[0.2em] uppercase">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-0.5 bg-accent rounded-full" />
+              <span className="label-premium text-accent">
                 Qui sommes-nous
               </span>
             </div>
 
-            <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-6 leading-tight">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl text-foreground mb-5 leading-tight">
               Votre partenaire en{" "}
-              <span className="text-gradient-copper">ingénierie</span>
+              <span className="text-gradient-accent">ingénierie</span>
             </h2>
 
-            <p className="text-muted-foreground leading-relaxed mb-5 font-medium">
+            <p className="text-muted-foreground leading-relaxed mb-4 font-medium text-sm sm:text-base">
               Nous sommes un groupe d'ingénierie tourné vers l'excellence
               technique, l'expertise, et l'innovation au service de nos clients
               dans les domaines du bâtiment, Génie Civil et des ouvrages d'arts.
             </p>
 
-            <p className="text-muted-foreground text-sm leading-relaxed mb-8 font-medium">
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6 font-medium">
               RADYEN CONSULT mobilise des experts de tous horizons, intervenant
               en Côte d'Ivoire et à l'international.
             </p>
@@ -72,7 +72,7 @@ export function AboutSection() {
           </div>
 
           {/* Right - Values */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {values.map((value, index) => (
               <div
                 key={index}
@@ -85,11 +85,13 @@ export function AboutSection() {
                   transitionDuration: '800ms'
                 }}
               >
-                <value.icon className="w-5 h-5 text-accent mb-4 transition-transform duration-300 group-hover:scale-110" />
-                <h3 className="font-heading text-base font-semibold text-foreground mb-2">
+                <div className="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center mb-3">
+                  <value.icon className="w-4 h-4 text-accent transition-transform duration-300 group-hover:scale-110" />
+                </div>
+                <h3 className="font-heading text-sm sm:text-base font-semibold text-foreground mb-1.5">
                   {value.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed font-medium">
                   {value.description}
                 </p>
               </div>

@@ -69,51 +69,45 @@ function TeamCard({
       className={cn(
         "group relative bg-card rounded-2xl overflow-hidden border border-border/30",
         "transition-all duration-500 ease-out",
-        "hover:-translate-y-2 hover:shadow-lg hover:border-accent/30",
+        "hover:-translate-y-1 hover:shadow-lg hover:border-accent/20",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       )}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      style={{ transitionDelay: `${index * 80}ms` }}
     >
       {/* Photo placeholder with gradient */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-background/80" />
+      <div className="relative aspect-square overflow-hidden bg-secondary">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/10 via-transparent to-background/90" />
         
         {/* Initials placeholder */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl font-bold text-accent/20 font-heading">
-            {member.name
-              .split(" ")
-              .map((n) => n[0])
-              .join("")}
-          </span>
+          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl border-2 border-accent/30 bg-card/50 backdrop-blur-sm flex items-center justify-center">
+            <span className="text-3xl sm:text-4xl font-bold text-accent/50 font-heading">
+              {member.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")}
+            </span>
+          </div>
         </div>
-
-        {/* Hover overlay */}
-        <div
-          className={cn(
-            "absolute inset-0 bg-accent/10 backdrop-blur-sm",
-            "opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          )}
-        />
 
         {/* Social links - appear on hover */}
         <div
           className={cn(
-            "absolute bottom-4 left-4 right-4 flex gap-2",
-            "opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0",
-            "transition-all duration-500 ease-out"
+            "absolute bottom-3 left-3 right-3 flex gap-2",
+            "opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0",
+            "transition-all duration-400 ease-out"
           )}
         >
           <a
             href={member.linkedin}
-            className="w-10 h-10 rounded-full bg-background/90 backdrop-blur flex items-center justify-center text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+            className="w-9 h-9 rounded-full bg-background/90 backdrop-blur flex items-center justify-center text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
             aria-label={`LinkedIn de ${member.name}`}
           >
             <Linkedin className="w-4 h-4" />
           </a>
           <a
             href={`mailto:${member.email}`}
-            className="w-10 h-10 rounded-full bg-background/90 backdrop-blur flex items-center justify-center text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+            className="w-9 h-9 rounded-full bg-background/90 backdrop-blur flex items-center justify-center text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
             aria-label={`Email de ${member.name}`}
           >
             <Mail className="w-4 h-4" />
@@ -122,15 +116,15 @@ function TeamCard({
       </div>
 
       {/* Content */}
-      <div className="p-6">
-        <h3 className="font-heading text-xl font-black text-foreground mb-1 tracking-tight">
+      <div className="p-5">
+        <h3 className="font-heading text-base sm:text-lg font-bold text-foreground mb-1 tracking-tight">
           {member.name}
         </h3>
-        <p className="text-gradient-accent font-bold text-sm mb-1">{member.role}</p>
-        <p className="text-muted-foreground text-xs font-semibold uppercase tracking-widest mb-3">
+        <p className="text-gradient-accent font-bold text-xs sm:text-sm mb-0.5">{member.role}</p>
+        <p className="text-muted-foreground text-[10px] sm:text-xs font-semibold uppercase tracking-widest mb-2.5">
           {member.specialty}
         </p>
-        <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+        <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed font-medium line-clamp-3">
           {member.bio}
         </p>
       </div>
@@ -144,27 +138,27 @@ export default function Equipe() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-secondary overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 bg-secondary overflow-hidden">
+        <div className="section-container">
           <div
             ref={heroRef}
             className={cn(
-              "max-w-4xl transition-all duration-1000",
+              "max-w-3xl transition-all duration-1000",
               heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="copper-line-left w-12" />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 h-0.5 bg-accent rounded-full" />
               <span className="label-premium text-accent">
                 Notre équipe
               </span>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-7xl font-black text-foreground mb-6 title-underline">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 title-underline">
               <span className="text-gradient-modern">Les Experts</span> RADYEN
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl font-semibold leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl font-medium leading-relaxed mt-6">
               Une équipe pluridisciplinaire d'ingénieurs et d'architectes passionnés,
               unis par l'excellence et l'innovation.
             </p>
@@ -176,9 +170,9 @@ export default function Equipe() {
       </section>
 
       {/* Team Grid */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="section-py-md bg-background">
+        <div className="section-container">
+          <div className="grid-responsive-3 gap-4 sm:gap-6">
             {teamMembers.map((member, index) => (
               <TeamCard key={member.name} member={member} index={index} />
             ))}
@@ -187,17 +181,17 @@ export default function Equipe() {
       </section>
 
       {/* Values CTA */}
-      <section className="py-20 bg-secondary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-3xl md:text-5xl font-black text-foreground mb-4 title-underline title-underline-center">
+      <section className="section-py-sm bg-secondary">
+        <div className="section-container text-center">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 title-underline title-underline-center">
             <span className="text-gradient-accent">Rejoignez</span> l'Aventure
           </h2>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8 mt-8 font-semibold">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-lg mx-auto mb-6 mt-6 font-medium">
             Nous recherchons toujours des talents passionnés pour renforcer notre équipe.
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-accent text-accent-foreground font-medium transition-all hover:shadow-lg hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-accent-foreground font-medium text-sm sm:text-base transition-all hover:shadow-lg hover:-translate-y-0.5"
           >
             Nous contacter
           </a>
