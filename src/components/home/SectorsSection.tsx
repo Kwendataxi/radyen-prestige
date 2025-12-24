@@ -39,32 +39,32 @@ export function SectorsSection() {
   const { ref: sectionRef, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   return (
-    <section ref={sectionRef} className="section-padding bg-secondary/30 relative">
-      <div className="container mx-auto px-6">
+    <section ref={sectionRef} className="section-py-md bg-secondary/30 relative">
+      <div className="section-container">
         {/* Header */}
         <div className={cn(
-          "text-center max-w-2xl mx-auto mb-16 transition-all duration-1000",
+          "text-center max-w-xl mx-auto mb-12 transition-all duration-1000",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         )}>
-          <div className="flex items-center justify-center gap-4 mb-6">
-            <div className="copper-line w-12" />
-            <span className="text-accent text-xs font-medium tracking-[0.2em] uppercase">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-8 h-0.5 bg-accent/50 rounded-full" />
+            <span className="label-premium text-accent">
               Nos secteurs
             </span>
-            <div className="copper-line w-12" />
+            <div className="w-8 h-0.5 bg-accent/50 rounded-full" />
           </div>
 
-          <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-4">
-            Nos <span className="text-gradient-copper">4 métiers</span>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl text-foreground mb-3">
+            Nos <span className="text-gradient-accent">4 métiers</span>
           </h2>
 
-          <p className="text-muted-foreground font-medium">
+          <p className="text-muted-foreground font-medium text-sm sm:text-base">
             Une expertise complète de la conception à la réalisation.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid-responsive-4">
           {sectors.map((sector, index) => (
             <div
               key={index}
@@ -79,20 +79,22 @@ export function SectorsSection() {
                 <img
                   src={sector.image}
                   alt={sector.title}
-                  className="w-full h-full object-cover img-zoom"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
               
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
 
               {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <sector.icon className="w-5 h-5 text-accent mb-3 transition-transform duration-300 group-hover:scale-110" />
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-1 group-hover:text-accent transition-colors duration-300">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                <div className="w-8 h-8 rounded-lg bg-accent/90 flex items-center justify-center mb-2.5">
+                  <sector.icon className="w-4 h-4 text-accent-foreground" />
+                </div>
+                <h3 className="font-heading text-base sm:text-lg font-semibold text-foreground mb-1 group-hover:text-accent transition-colors duration-300">
                   {sector.title}
                 </h3>
-                <p className="text-muted-foreground text-sm font-medium opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                <p className="text-muted-foreground text-xs sm:text-sm font-medium opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                   {sector.description}
                 </p>
               </div>
@@ -102,7 +104,7 @@ export function SectorsSection() {
 
         {/* CTA */}
         <div className={cn(
-          "text-center mt-12 transition-all duration-1000",
+          "text-center mt-10 transition-all duration-1000",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         )} style={{ transitionDelay: '400ms' }}>
           <Link to="/secteurs">

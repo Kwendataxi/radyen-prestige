@@ -10,11 +10,11 @@ function AnimatedStat({ value, label, suffix = "" }: { value: number; label: str
   const count = useCountUp(value, 2000, isVisible);
 
   return (
-    <div ref={ref} className="text-center group">
-      <div className="font-heading text-3xl md:text-4xl lg:text-5xl font-black text-gradient-accent stat-glow mb-1 tabular-nums transition-transform duration-300 group-hover:scale-110">
+    <div ref={ref} className="text-center group py-2">
+      <div className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-gradient-accent stat-glow mb-1.5 tabular-nums transition-transform duration-300 group-hover:scale-105">
         {count}{suffix}
       </div>
-      <div className="label-premium text-foreground/80">{label}</div>
+      <div className="label-premium text-xs text-foreground/70">{label}</div>
     </div>
   );
 }
@@ -39,11 +39,11 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-6 pt-32 pb-24">
-        <div className="max-w-4xl">
+      <div className="relative section-container pt-32 pb-20">
+        <div className="max-w-3xl">
           {/* Badge */}
           <div 
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-card mb-8 opacity-0 animate-fade-in"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-card/60 backdrop-blur-sm border border-border/30 mb-8 opacity-0 animate-fade-in"
           >
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
             <span className="label-premium text-muted-foreground">
@@ -52,7 +52,7 @@ export function HeroSection() {
           </div>
 
           {/* Heading with gradient effect */}
-          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground leading-[0.95] mb-8 tracking-tighter">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1] mb-6 tracking-tighter">
             <span className="block opacity-0 animate-fade-in-up text-glow-subtle" style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}>
               Un groupe d'ingénierie
             </span>
@@ -63,7 +63,7 @@ export function HeroSection() {
 
           {/* Subtitle */}
           <p 
-            className="text-lg md:text-xl lg:text-2xl text-muted-foreground font-semibold max-w-2xl mb-12 leading-relaxed opacity-0 animate-fade-in-up" 
+            className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium max-w-xl mb-10 leading-relaxed opacity-0 animate-fade-in-up" 
             style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
           >
             Au service de nos clients dans les domaines du bâtiment, génie civil
@@ -72,17 +72,17 @@ export function HeroSection() {
 
           {/* CTAs */}
           <div 
-            className="flex flex-wrap gap-4 mb-20 opacity-0 animate-fade-in-up" 
+            className="flex flex-wrap gap-3 sm:gap-4 mb-16 opacity-0 animate-fade-in-up" 
             style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}
           >
             <Link to="/expertise">
-              <Button variant="copper" size="lg" className="group text-base px-8 py-6 font-bold shadow-copper hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
+              <Button variant="copper" size="lg" className="group text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 font-bold shadow-copper hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
                 Nos expertises
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
             </Link>
             <Link to="/contact">
-              <Button variant="outline" size="lg" className="text-base px-8 py-6 font-bold border-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:-translate-y-1">
+              <Button variant="outline" size="lg" className="text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 font-bold border-2 hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:-translate-y-1">
                 Nous contacter
               </Button>
             </Link>
@@ -90,7 +90,7 @@ export function HeroSection() {
 
           {/* Stats */}
           <div 
-            className="grid grid-cols-4 gap-8 max-w-2xl pt-8 border-t border-border/30 opacity-0 animate-fade-in-up" 
+            className="stats-container max-w-xl opacity-0 animate-fade-in-up" 
             style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}
           >
             <AnimatedStat value={20} suffix="+" label="Projets" />
