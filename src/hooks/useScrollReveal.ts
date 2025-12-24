@@ -1,15 +1,25 @@
 import { useEffect, useRef, useState } from 'react';
 
+type RevealDirection = 'up' | 'down' | 'left' | 'right' | 'none';
+
 interface UseScrollRevealOptions {
   threshold?: number;
   rootMargin?: string;
   triggerOnce?: boolean;
+  direction?: RevealDirection;
+  delay?: number;
 }
 
 export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
   options: UseScrollRevealOptions = {}
 ) {
-  const { threshold = 0.1, rootMargin = '0px 0px -50px 0px', triggerOnce = true } = options;
+  const { 
+    threshold = 0.1, 
+    rootMargin = '0px 0px -50px 0px', 
+    triggerOnce = true,
+    direction = 'up',
+    delay = 0
+  } = options;
   const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -20,7 +30,11 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          if (delay > 0) {
+            setTimeout(() => setIsVisible(true), delay);
+          } else {
+            setIsVisible(true);
+          }
           if (triggerOnce) {
             observer.unobserve(element);
           }
@@ -34,9 +48,21 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
     observer.observe(element);
 
     return () => observer.disconnect();
-  }, [threshold, rootMargin, triggerOnce]);
+  }, [threshold, rootMargin, triggerOnce, delay]);
 
-  return { ref, isVisible };
+  // Generate animation classes based on direction
+  const getAnimationClass = () => {
+    if (!isVisible) return '';
+    switch (direction) {
+      case 'up': return 'animate-reveal-up';
+      case 'down': return 'animate-fade-in-up';
+      case 'left': return 'animate-reveal-left';
+      case 'right': return 'animate-reveal-right';
+      default: return 'animate-fade-in';
+    }
+  };
+
+  return { ref, isVisible, animationClass: getAnimationClass() };
 }
 
 export function useCountUp(end: number, duration: number = 2000, isVisible: boolean = true) {
